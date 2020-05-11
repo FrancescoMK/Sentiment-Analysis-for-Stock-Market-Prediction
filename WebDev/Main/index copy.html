@@ -32,27 +32,10 @@
 
 <body id="page-top">
 
-   <!-- Navigation
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Sentiment Analysis</a><button
-        class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-          class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="portfolio.html">Portfolio</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#how">How it works</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  -->
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroller-trigger" href="#page-top">Sentiment Analysis</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Sentiment Analysis</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -76,17 +59,32 @@
       <div class="carousel-inner" role="listbox">
         <!-- Slide One -->
         <div class="carousel-item active">
-          <div class="carousel-caption" style="top: 40%;">
-            <h2 class="display-3">We predict sentiment on your stocks</h2>
-            <p class="lead d-none d-md-block pb-5">Elevate you investment portfolio by gainin deep indsights</p>
-            <a class="btn btn-primary btn-xl" href="#carouselIndicators" role="button" data-slide="next">Get Started!</a>
-          </div>
+          <div class="container">
+            <div class="carousel-caption" style="top: 40%;">
+              <h2 class="display-3">We predict sentiment on your stocks</h2>
+              <p class="lead d-none d-md-block pb-5">Elevate you investment portfolio by gaining deep indsights into the sorrounding sentiment</p>
+              <a class="btn btn-primary btn-xl" href="#carouselIndicators" role="button" data-slide="next">Get Started!</a>
+            </div>
+        </div>
         </div>
         <!-- Slide Two -->
         <div class="carousel-item">
-            <div class="carousel-caption" style="top: 10%;">
-              <h2>TEST</h2>
+          <div class="main-fill-row"></div>
+          <div class="main-content">
+            <div class="main-item1">
+              <h4 class="text-white">Start</h4>
+              <img src="/WebDev/Main/assets/img/calendar.png" alt="" style="height: 250px;">
+              <h4 class="text-white">End</h4>
+              <img src="/WebDev/Main/assets/img/calendar.png" alt="" style="height: 250px;">
             </div>
+            <div class="main-item2">
+              <canvas id="myChart" width="400" height="200" style="background-color: rgba(255, 255, 255, 0);"></canvas>
+            </div>
+            <div class="main-item1">
+              <h2 class="text-white">Overall Sentiment</h2>
+              <i class="fas fa-4x fa-angle-double-up text-primary"></i>
+            </div>
+          </div>
         </div>
       </div>
     </div>

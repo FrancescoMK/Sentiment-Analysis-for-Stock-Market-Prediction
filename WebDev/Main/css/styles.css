@@ -55,6 +55,37 @@ section.about {
   background-size: cover;
 }
 
+.main-content {
+  display: flex;
+  padding: 5%;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.main-fill-row {
+  height: 60px;
+}
+
+.main-item1 {
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 2%;
+  width: auto;
+
+}
+.main-item2 {
+  flex: 5;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  width: auto;
+}
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -3994,7 +4025,7 @@ input[type=button].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -5978,9 +6009,9 @@ a.close.disabled {
 
 .carousel-caption {
   position: absolute;
-  right: 15%;
+  right: 5%;
   bottom: 20px;
-  left: 15%;
+  left: 5%;
   top: 20px;
   z-index: 10;
   padding-top: 20px;

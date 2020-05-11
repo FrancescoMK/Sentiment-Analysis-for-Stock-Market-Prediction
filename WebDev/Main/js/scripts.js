@@ -62,41 +62,51 @@
 
 })(jQuery); // End of use strict
 
-var chart = $('#chart').epoch({
-  type: 'time.area',
-  data: []
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: 'Sentiment',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 255, 255, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 255, 255, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)',
+                'rgba(255, 255, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                  fontColor: "white",  
+                  beginAtZero: true
+                }
+            }],
+            xAxes: [{
+              ticks: {
+                fontColor: "white"
+              }
+            }],
+        },
+        title: {
+          display: true,
+          text: 'SENTIMENT'
+        }
+    }
 });
-
-// The button swtiches the chart's class from styles1 to styles2 and back
-$('#toggle').click(function (e) {
-  // This switches the class names...
-  var className = $('#chart').attr('class');
-  var newClassName = className === 'styles1' ? 'styles2' : 'styles1';
-  $('#chart').removeClass(className).addClass(newClassName);
-
-  // And this is required to see the updated styles...
-  chart.redraw();
-});
-
-$('#my-chart').epoch({
-  type: 'time.line',
-  pixelRatio: 1
-})
-
-var lineChartData = [
-  // First series
-  {
-    label: "Series 1",
-    values: [ {time: 1370044800, y: 100}, {time: 1370044801, y: 1000}]
-  },
-
-  // The second series
-  {
-    label: "Series 2",
-    values: [ {time: 1370044800, y: 78}, {time: 1370044801, y: 98}]
-  },
-
-  ...
-];
-
 
