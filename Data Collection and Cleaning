@@ -1,0 +1,66 @@
+import scrapy
+from scrapy.crawler import CrawlerProcess
+import pandas as pd 
+
+class reuters_aktier_spider(scrapy.Spider):
+    name = 'reuters_test'
+    def start_requests(self):
+        start_urls =[
+        'https://www.reuters.com/companies/FB.OQ/news',
+        'https://www.reuters.com/companies/AMZN.OQ/news',
+        'https://www.reuters.com/companies/AAPL.OQ/news',
+        'https://www.reuters.com/companies/NFLX.OQ/news',
+        'https://www.reuters.com/companies/GOOGL.OQ/news'
+    ]
+        for url in start_urls:
+            yield  scrapy.Request(url=url,callback=self.parse)
+
+    def parse(self,response):
+        news_link= response.css('div.item>div>a::attr(href)')
+        links_to_follow=news_link.extract()
+        for url in links_to_follow:
+            yield response.follow(url=url, callback=self.parse_pages)
+
+    def parse_pages(self,response):
+        article_date=response.css('div.ArticleHeader_date')[0].get()
+        article_text=response.css('div.StandardArticleBody_container p::text').getall()
+        Reuters_dict[article_date]= article_text
+
+Reuters_dict= dict()
+
+process = CrawlerProcess()
+process.crawl(reuters_aktier_spider)
+process.start()
+
+
+df= pd.DataFrame.from_dict(Reuters_dict, orient= 'index')
+
+#To clean dataframe
+
+# Dropping first unnecessary column
+df2= df.reset_index(drop=True)
+
+# Check
+print(df2.head(3))
+
+# Combining all columns in new "ALL" column
+df2['ALL'] = df2[df2.columns[0:]].apply(
+    lambda x: ','.join(x.dropna().astype(str)),
+    axis=1
+)
+
+# Deleting all columns except for "ALL"
+df2.drop(df2.columns.difference(['ALL']), 1, inplace=True)
+
+# Seperating "ALL" Column after first instance of "-". E.g. "Reuters - ...""
+df_reuters = pd.DataFrame(df2.ALL.str.split('-',1).tolist(),
+                                 columns = ['Source','Text'])
+
+# Check layout.
+df_reuters.head(3)
+
+#To csv file
+
+df_reuters.to_csv(r'C:\Users\chris\Documents\TEchlabs\Reuters.csv')
+# general formula-> df.to_csv(r'place you want to save it\File name.csv')
+#Note: The above code is an example from my personal documents
