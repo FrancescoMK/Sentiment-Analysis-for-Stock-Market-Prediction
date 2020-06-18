@@ -41,7 +41,7 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#carouselIndicators" data-slide="next">Porfolio</a></li>
+          <li class="nav-item"><a class="js-scroll-trigger nav-link" href="#carouselIndicators" data-slide="next">Porfolio</a></li>
           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#how">How it works</a></li>
           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
         </ul>
@@ -50,7 +50,7 @@
   </nav>
 
   <!-- Masthead -->
-  <header style="background-image: linear-gradient(to bottom, rgba(145, 212, 119, 0.8) 0%, rgba(21, 65, 8, 0.829) 100%), url('/WebDev/Main/assets/img/stocks1.jpeg')">
+  <header style="background-image: linear-gradient(to bottom, #91d477cc 0%, #154108d3 100%), url('/WebDev/Main/assets/img/stocks1.jpeg')">
     <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-wrap="false" data-interval="false">
       <ol class="carousel-indicators pb-1">
         <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -72,17 +72,15 @@
           <div class="main-fill-row"></div>
           <div class="main-content">
             <div class="main-item1">
-              <h4 class="text-white">Start</h4>
-              <img src="/WebDev/Main/assets/img/calendar.png" alt="" style="height: 250px;">
-              <h4 class="text-white">End</h4>
-              <img src="/WebDev/Main/assets/img/calendar.png" alt="" style="height: 250px;">
+             
             </div>
             <div class="main-item2">
-              <canvas id="myChart" width="400" height="200" style="background-color: rgba(255, 255, 255, 0);"></canvas>
+              <canvas id="myChart" width="400" height="250" style="background-color: rgba(255, 255, 255, 0);"></canvas>
             </div>
             <div class="main-item1">
-              <h2 class="text-white">Overall Sentiment</h2>
+              <h1 class="text-white">Overall Sentiment</h1>
               <i class="fas fa-4x fa-angle-double-up text-primary"></i>
+              <h1 class="text-white">55%</h1>
             </div>
           </div>
         </div>
@@ -147,42 +145,42 @@
           <div class="mt-4">
             <img src="assets/img/patrick.jpg" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Patrick Staeckmann</h3>
-            <p class="text-white-50 mb-0">MSc in Business Administration and E-business</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <div class="mt-4">
-            <i class="fas fa-5x fa-question text-primary mb-4"></i>
+            <img src="assets/img/Sebastian.png" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Sebastian Gregers Winkel Hansen</h3>
-            <p class="text-white-50 mb-0">???</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <div class="mt-4">
-            <i class="fas fa-5x fa-question text-primary mb-4"></i>
+            <img src="assets/img/Christina.png" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Christina Stolz</h3>
-            <p class="text-white-50 mb-0">???</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <div class="mt-4">
-            <i class="fas fa-5x fa-question text-primary mb-4"></i>
+            <img src="assets/img/Francesco.png" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Francesco Cocozza</h3>
-            <p class="text-white-50 mb-0">???</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <div class="mt-4">
-            <i class="fas fa-5x fa-question text-primary mb-4"></i>
+            <img src="assets/img/Nikolai.png" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Nikolaj Vinzentz Gade</h3>
-            <p class="text-white-50 mb-0">???</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 text-center">
           <div class="mt-4">
-            <i class="fas fa-5x fa-question text-primary mb-4"></i>
+            <img src="assets/img/Peter.png" class="img-fluid py-3 px-5 rounded-circle">
             <h3 class="h5 text-white-75 mb-2">Peter Thyssen</h3>
-            <p class="text-white-50 mb-0">???</p>
+            <p class="text-white-50 mb-0">CBS</p>
           </div>
         </div>
       </div>
@@ -206,6 +204,20 @@
   <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
 
+  <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+  </script>
 
 
 </body>

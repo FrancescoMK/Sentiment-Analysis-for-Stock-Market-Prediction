@@ -66,10 +66,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['18/05/2020', '25/05/2020', '01/06/2020', '08/06/2020', '15/05/2020', '22/05/2020'],
         datasets: [{
             label: 'Sentiment',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [60, 70, 23, -11, -45, 44],
             backgroundColor: [
                 'rgba(255, 255, 255, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
